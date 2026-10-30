@@ -48,7 +48,7 @@ main:
         addu $t1, $a1, $t0	# Row starting address (base + y-scaled)
         addu $t1, $a0, $t1	# Starting pixel address (base + y-scaled + x-scaled)
         
-        li $t2, 0		# Starting direction
+        li $t2, 2		# Starting direction
         
         li $a0, 1		# Wait time in milliseconds
         
@@ -58,22 +58,22 @@ main:
             # If current pixel is white:
             white_pixel:
             	bne $t3, $a2, black_pixel	# Branch to black_pixel if current pixel is not white
-            	addi $t2, $t2, 1		# Increment direction
+            	addi $t2, $t2, -1		# Decrement direction (turn 90 degrees clockwise)
             	sw $a3, ($t1)			# Flip pixel to black
-            
-            	slti $t3, $t2, 4        	# If direction < 4, $t3 = 1; 0 otherwise (direction > 3)
-            	bne $t3, $zero, if_end		# Branch to if_end if $t3 != 0 (direction <= 3)
-            	li $t2, 0			# If direction > 3, set to 0
+            	
+            	slti $t3, $t2, 0        	# If direction < 0, $t3 = 1; 0 otherwise (direction >= 0)
+            	beq $t3, $zero, if_end		# Branch to if_end if $t3 == 0 (direction >= 0)
+            	li $t2, 3			# If direction < 0, set to 3
             	j if_end			# Jump to if_end (skip second conditional block)
             
             # Current pixel is black (given it is not white)
             black_pixel:
-            	addi $t2, $t2, -1		# Decrement direction
+            	addi $t2, $t2, 1		# Increment direction (turn 90 degrees counter-clockwise)
             	sw $a2, ($t1)			# Flip pixel to white
-            
-            	slti $t3, $t2, 0        	# If direction < 0, $t3 = 1; 0 otherwise (direction >= 0)
-            	beq $t3, $zero, if_end		# Branch to if_end if $t3 == 0 (direction >= 0)
-            	li $t2, 3			# If direction < 0, set to 3
+                
+            	slti $t3, $t2, 4        	# If direction < 4, $t3 = 1; 0 otherwise (direction > 3)
+            	bne $t3, $zero, if_end		# Branch to if_end if $t3 != 0 (direction <= 3)
+            	li $t2, 0			# If direction > 3, set to 0
             
             if_end:			# End of both conditional blocks
             
@@ -102,7 +102,7 @@ main:
             li $v0, 32			# syscall 32: pause program execution
             syscall
             
-            beq $s0, $zero, ant_loop_end	# Break loop if left edge of display is reached
+            beq $s0, 512, ant_loop_end		# Break loop if right edge of display is reached
             beq $s1, 512, ant_loop_end		# Break loop if bottom edge of display is reached
             j ant_loop
         ant_loop_end:
