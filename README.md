@@ -7,7 +7,7 @@ An implementation of Langton's Ant in MIPS assembly language.
 Langton's Ant is a two-dimensional turning machine and cellular automaton created by Chris Langton in 1986, 
 where each square has two states (black or white) and one is identified as the "ant".
 
-<img width="507" height="507" alt="ant_running2" src="https://github.com/user-attachments/assets/79aa8293-bfdf-40c4-9334-f4976c6c8664" />
+<img width="507" height="507" alt="ant_running2" src="https://github.com/user-attachments/assets/3f2a69a4-8fbf-4247-815f-b679abbc99d6" />
 
 <br>
 <br>
@@ -56,4 +56,5 @@ For all three:
 - Display Height in Pixels: 512
 - Base address for display: 0x100100000 (static data)
 
-<img width="921" height="564" alt="ant_running" src="https://github.com/user-attachments/assets/97de0e40-c035-4195-9f0e-09cf0bb189a7" />
+<img width="954" height="572" alt="ant_running" src="https://github.com/user-attachments/assets/aa3342ae-bab9-4b58-b206-9a94c28b4aeb" />
+
