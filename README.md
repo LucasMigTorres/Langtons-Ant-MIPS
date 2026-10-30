@@ -32,11 +32,9 @@ Download any of the three .asm files:
 
 <br>
 
-<p float="middle">
-  <img width="320" height="320" alt="ant(1x1)" src="https://github.com/user-attachments/assets/bd2d43a2-8f51-483e-a8ad-655d5f57f8d3" width="100%">
-  <img width="320" height="320" alt="ant(2x2)" src="https://github.com/user-attachments/assets/979bc44a-b8b9-42cf-a632-9e77a609fc33" width="100%">
-  <img width="320" height="320" alt="ant(4x4)" src="https://github.com/user-attachments/assets/66f9a190-d182-48f4-85e0-9d4135197c18" width="100%">
-</p>
+| langtons_ant(1x1) | langtons_ant(2x2) | langtons_ant(4x4) |
+| :-----: | :-----: | :-----: |
+| <img width="504" height="504" alt="ant(1x1)" src="https://github.com/user-attachments/assets/5f2d4ab1-427e-4d03-8c71-5bf74b76c20d" /> | <img width="504" height="504" alt="ant(2x2)" src="https://github.com/user-attachments/assets/fd6aab75-a159-4875-b457-7d328dd0c717" /> | <img width="504" height="504" alt="ant(4x4)" src="https://github.com/user-attachments/assets/dbcc5895-4973-45bd-90c9-67a10d136e1f" /> |
 
 <br>
 
